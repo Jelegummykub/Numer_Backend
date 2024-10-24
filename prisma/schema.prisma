@@ -19,7 +19,7 @@ model rootequation {
 }
 
 model matrixequation {
-  id Int @id @default(autoincrement())
-  equation String
-  matrix   Json
+  id        Int    @id @default(autoincrement())
+  matrix    String
+  constants String
 }

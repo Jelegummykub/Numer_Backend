@@ -5,11 +5,11 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
 router.post('/equation/matrix' ,
-    body('equation').notEmpty().withMessage("กรุณากรอกโจทย์"),
-    body('matrix').isArray().withMessage("กรุณากรอก matrix เป็นอาเรย์"),
+    body('constants').notEmpty().withMessage("กรุณากรอกโจทย์"),
+    body('matrix').notEmpty().withMessage("กรุณากรอก matrix เป็นอาเรย์"),
 
     async(req , res) => {
-        const { equation , matrix } = req.body
+        const { constants , matrix } = req.body
 
         if (matrix === undefined) {
             return res.status(400).json({
@@ -22,8 +22,8 @@ router.post('/equation/matrix' ,
         try {
             const creatematrix = await prisma.matrixequation.create({
                 data : {
-                    equation : String(equation),
-                    matrix : JSON.stringify(matrix)
+                    constants : String(constants),
+                    matrix : String(matrix)
                 }
             })
             return res.status(200).json({
@@ -43,23 +43,31 @@ router.post('/equation/matrix' ,
     }
 )
 
-router.get('/matrix', async (req , res) => {
+router.get('/matrix', async (req, res) => {
     try {
         const readequation = await prisma.matrixequation.findMany()
+
+        const resultData = readequation.map(item => ({
+            matrix: JSON.stringify(item.matrix),
+            constants: JSON.stringify(item.constants),
+            id: item.id
+        }));
+
         return res.status(200).json({
-            result : true,
-            status : "success",
-            data : readequation
-        })
+            result: true,
+            status: "success",
+            data: resultData
+        });
     } catch (error) {
-        console.error("ไม่สามารถอ่านได้" , error)
+        console.error("ไม่สามารถอ่านได้", error);
         return res.status(500).json({
-            result : false,
-            status : "error",
-            msg : "เกิดข้อผิดพลาดในการอ่านข้อมูล"
-        })
+            result: false,
+            status: "error",
+            msg: "เกิดข้อผิดพลาดในการอ่านข้อมูล"
+        });
     }
-})
+});
+
 
 
 module.exports = router
