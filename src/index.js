@@ -15,6 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/info',require('./router/info.route'))
 app.use('/infomatrix',require('./router/infomatrix.route'))
+app.use('/infointer',require('./router/infointer.route'))
+app.use('/integrateq',require('./router/integrateq.route'))
+
+
 
 
 
