@@ -1,5 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDoc = require('./swagger.json')
+
 const app = express();
 
 app.use(cors({
@@ -11,12 +14,12 @@ app.use(cors({
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-
 app.use('/info', require('./router/info.route'))
 app.use('/infomatrix', require('./router/infomatrix.route'))
 app.use('/infointer', require('./router/infointer.route'))
 app.use('/integrateq', require('./router/integrateq.route'))
 app.use('/diff', require('./router/diff.route'))
+app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 app.get('/', (req , res) => {
     res.send("Hello")

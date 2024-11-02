@@ -1,0 +1,129 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Numerical api ",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/equation/root": {
+      "post": {
+        "tags": [
+          "Root"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/equation/matrix": {
+      "post": {
+        "tags": [
+          "Matrix"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/interpolation/value": {
+      "post": {
+        "tags": [
+          "Interpolation && Extrapolation"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/equation/value": {
+      "post": {
+        "tags": [
+          "Integration"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/equationdiff/diff": {
+      "post": {
+        "tags": [
+          "Differentiation"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/root": {
+      "get": {
+        "tags": [
+          "Root"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/matrix": {
+      "get": {
+        "tags": [
+          "Matrix"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/interpolation": {
+      "get": {
+        "tags": [
+          "Interpolation && Extrapolation"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/value": {
+      "get": {
+        "tags": [
+          "Integration"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/diffeq": {
+      "get": {
+        "tags": [
+          "Differentiation"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    }
+  }
+}
