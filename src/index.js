@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3002;
 
 app.use(cors({
   origin: '*',
@@ -13,15 +12,17 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use('/info',require('./router/info.route'))
-app.use('/infomatrix',require('./router/infomatrix.route'))
-app.use('/infointer',require('./router/infointer.route'))
-app.use('/integrateq',require('./router/integrateq.route'))
+app.use('/info', require('./router/info.route'))
+app.use('/infomatrix', require('./router/infomatrix.route'))
+app.use('/infointer', require('./router/infointer.route'))
+app.use('/integrateq', require('./router/integrateq.route'))
+app.use('/diff', require('./router/diff.route'))
 
+app.get('/', (req , res) => {
+    res.send("Hello")
+  }
+)
 
-
-
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(4000, '0.0.0.0', () => {
+  console.log(`Server is running on http://localhost:4000`);
 })

@@ -1,0 +1,7 @@
+services:
+  backend:
+    network_mode: "host"
+    image: numer/test
+    restart: on-failure
+    ports:
+      - 4000:4000

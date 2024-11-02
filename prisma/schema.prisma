@@ -34,3 +34,8 @@ model integrat {
   id               Int @id @default(autoincrement())
   equationintegrat String
 }
+
+model diff {
+  id Int @id @default(autoincrement())
+  equationdiff String
+}

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon ./src/index.js",
     "start": "node ./src/index.js",
-    "dbpush": "prisma db push && prisma generate"
+    "dbpush": "prisma db push && prisma generate",
+    "dbgenerate" : "prisma generate"
   },
   "author": "",
   "license": "ISC",

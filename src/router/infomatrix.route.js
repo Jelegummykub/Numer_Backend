@@ -64,7 +64,7 @@ router.get('/matrix', async (req, res) => {
             result: false,
             status: "error",
             msg: "เกิดข้อผิดพลาดในการอ่านข้อมูล"
-        });
+        })
     }
 });
 
